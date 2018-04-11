@@ -5,6 +5,7 @@ class MarkersController < ApplicationController
     else
       Marker.all.order(created_at: :desc)
     end
+    @markers_hash = @markers.map{ |m| { lat: m.lat, lng: m.lng } }
   end
 
   def create
