@@ -1,3 +1,7 @@
+= form_for :marker do |f|
+  = f.text_field :lat
+  = f.text_field :lng
+  = f.submit 'Add!'
 %ul
   - @markers.each do |m|
     %li= m.lat.to_s + ' ' + m.lng.to_s
