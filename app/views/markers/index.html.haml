@@ -2,6 +2,10 @@
   = f.text_field :lat
   = f.text_field :lng
   = f.submit 'Add!'
+
+- link_params = @markers.map{ |m| {lat: m.lat, lng: m.lng} }
+= link_to 'Open markers by link', markers_url(markers: link_params)
+
 %ul
   - @markers.each do |m|
     %li= m.lat.to_s + ' ' + m.lng.to_s

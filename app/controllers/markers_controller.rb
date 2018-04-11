@@ -1,6 +1,10 @@
 class MarkersController < ApplicationController
   def index
-    @markers = Marker.all.order(created_at: :desc)
+    @markers = if params[:markers]
+      params[:markers].map{ |m| Marker.new(lat: m[:lat], lng: m[:lng]) }
+    else
+      Marker.all.order(created_at: :desc)
+    end
   end
 
   def create
