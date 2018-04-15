@@ -3,4 +3,8 @@ Rails.application.routes.draw do
   scope '/task1' do
     resources :markers, only: [:index, :create]
   end
+
+  scope '/task2' do
+    mount Dashing::Engine, at: '/'
+  end
 end

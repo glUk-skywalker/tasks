@@ -54,5 +54,11 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'haml'
-gem 'gmaps4rails'
-gem 'underscore-rails'
+group :task1 do
+  gem 'gmaps4rails'
+  gem 'underscore-rails'
+end
+
+group :task2 do
+  gem 'dashing-rails'
+end
