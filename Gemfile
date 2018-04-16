@@ -56,3 +56,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml'
 gem 'gmaps4rails'
 gem 'underscore-rails'
+
+gem 'frontend-generators'
+gem 'jquery-rails'
