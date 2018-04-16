@@ -7,6 +7,7 @@ class FreelancersController < ApplicationController
 
   def create
     @f = Freelancer.create(filtered_params)
+    FreelancerMailer.with(freelancer: @f).notification.deliver_now
     respond_to do |format|
       format.json { render json: @f }
     end
