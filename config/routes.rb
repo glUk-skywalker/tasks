@@ -4,5 +4,8 @@ Rails.application.routes.draw do
     resources :markers, only: [:index, :create]
   end
 
-  get 'freelancers/index'
+  # get 'freelancers/index'
+  scope '/task3' do
+    resources :freelancers, only: [:new, :create]
+  end
 end

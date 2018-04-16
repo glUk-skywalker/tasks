@@ -1,0 +1,35 @@
+%section#contact
+  .container
+    .row
+      .col-lg-12.text-center
+        %h2 Contact Me
+        %hr.star-primary/
+    .row
+      .col-lg-8.col-lg-offset-2
+        / To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.
+        / The form should work on most web servers, but if the form is not working you may need to configure your web server differently.
+        = form_for @freelancer, html: { name: 'sentMessage', novalidate: '', class: 'contactForm' } do |f|
+          #success
+          .row.control-group
+            .form-group.col-xs-12.floating-label-form-group.controls
+              = f.label :name
+              = f.text_field :name, id: 'name', class: 'form-control', "data-validation-required-message" => "Please enter your name.", :placeholder => "Name", :required => ""
+          .row.control-group
+            .form-group.col-xs-12.floating-label-form-group.controls
+              = f.label 'Email Address'
+              = f.email_field :email, id: 'email', class: 'form-control', "data-validation-required-message" => "Please enter your email address.", :placeholder => "Email Address", :required => ""
+              %p.help-block.text-danger
+          .row.control-group
+            .form-group.col-xs-12.floating-label-form-group.controls
+              = f.label 'Phone Number'
+              = f.telephone_field :phone, id: 'phone', class: 'form-control', "data-validation-required-message" => "Please enter your phone number.", :placeholder => "Phone Number", :required => ""
+              %p.help-block.text-danger
+          .row.control-group
+            .form-group.col-xs-12.floating-label-form-group.controls
+              = f.label :message
+              = f.text_area :message, id: 'message', class: 'form-control', "data-validation-required-message" => "Please enter a message.", :placeholder => "Message", :required => "", :rows => "5"
+              %p.help-block.text-danger
+          %br/
+          .row
+            .form-group.col-xs-12
+              = f.submit 'Send', class: 'btn btn-success btn-lg'
