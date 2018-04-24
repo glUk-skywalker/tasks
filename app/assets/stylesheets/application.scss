@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+#task1 {
+  #map {
+    width:100%;
+    height:100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+  #form-panel {
+    vertical-align: top;
+    z-index: 1;
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    background-color: white;
+  }
+}

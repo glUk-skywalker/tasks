@@ -1,26 +1,22 @@
-%table
-  %tbody
-    %tr
-      %td{ 'valign': 'top' }
-        = form_for :marker do |f|
-          = f.text_field :lat
-          = f.text_field :lng
-          = f.submit 'Add!'
+#task1
+  #map
+  #form-panel
+    = form_for :marker do |f|
+      = f.text_field :lat, size: '10'
+      = f.text_field :lng, size: '10'
+      = f.submit 'Add!'
 
-        = link_to 'Open markers by link', markers_url(markers: @markers_hash)
+    = link_to 'Open markers by link', markers_url(markers: @markers_hash)
 
-        %ul
-          - @markers.each do |m|
-            %li= m.lat.to_s + ' ' + m.lng.to_s
-      %td
-        %div{ style: 'width: 800px;' }
-          %div{ id: "map", style: 'width: 800px; height: 400px;'}
+    %ul
+      - @markers.each do |m|
+        %li= m.lat.to_s + ' ' + m.lng.to_s
 
-:javascript
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    points = #{@markers_hash.to_json.html_safe}
-    markers = handler.addMarkers(points);
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-  });
+  :javascript
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      points = #{@markers_hash.to_json.html_safe}
+      markers = handler.addMarkers(points);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });
